@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fcf0ccae-eb08-46ce-9dc0-4b26c452eace" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="assign3Flow" doc:id="f81cad47-9fc8-48a2-bd47-360111a5fd17" >
+		<http:listener doc:name="Listener" doc:id="1c09c911-2295-42ed-b566-339d529b4356" config-ref="HTTP_Listener_config" path="/conc" allowedMethods="GET,POST"/>
+		<set-variable value='#[attributes.queryParams.first]' doc:name="Set Variable1" doc:id="6f343851-88e6-4428-ae6c-d425546085d5" variableName="first"/>
+		<set-variable value="#[attributes.queryParams.second]" doc:name="Set Variable2" doc:id="8c7946bf-9a57-4bc5-a1f8-db96aa1e7886" variableName="second"/>
+		<logger level="INFO" doc:name="Logger2" doc:id="3a230fe9-ee8f-468d-9291-21c41f172846" message="processing to apply the logic" />
+		<set-payload doc:name="Set Payload" doc:id="e1569d9c-50fd-485a-8081-e71f3e594a05" value='#["my name is " ++ vars.first ++ " "  ++ vars.second]'/>
+	</flow>
+</mule>
