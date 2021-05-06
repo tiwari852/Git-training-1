@@ -42,8 +42,8 @@
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
 						<properties>
-							<anypoint.platform.client_id>777f7311a08c43ecb62ff905c5d3b892</anypoint.platform.client_id>
-							<anypoint.platform.secret>E09DbECDE6964C41A489109d87e297Af</anypoint.platform.secret>
+							<anypoint.platform.client_id>bbd886ae259746eb9323a4334cbd53c9</anypoint.platform.client_id>
+							<anypoint.platform.secret>bbd886ae259746eb9323a4334cbd53c9</anypoint.platform.secret>
 						</properties>
 					</cloudHubDeployment>
 				</configuration>
